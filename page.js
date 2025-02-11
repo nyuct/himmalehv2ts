@@ -1,12 +1,12 @@
 "use client";
-import { AboutHome } from "@/app/components/AboutHome";
+import { AboutHome } from "@/components/AboutHome";
 import RootLayout from "../app/layout";
-import HeroSection from "@/app/components/HeroSection";
-import ImageReavles from "@/app/components/ImageReavles";
-import LongImageSection from "@/app/components/LongImageSection";
-import HomeBanner from "@/app/components/HomeBanner";
-import ImagePops from "@/app/components/ImagePops";
-import BubbleSpread from "@/app/components/BubbleSpread";
+import HeroSection from "@/components/HeroSection";
+import ImageReavles from "@/components/ImageReavles";
+import LongImageSection from "@/components/LongImageSection";
+import HomeBanner from "@/components/HomeBanner";
+import ImagePops from "@/components/ImagePops";
+import BubbleSpread from "@/components/BubbleSpread";
 export default function Home() {
   return (
     <RootLayout>
