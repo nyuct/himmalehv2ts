@@ -1,4 +1,4 @@
-import RootLayout from "@/app/components/RootLayout ";
+import RootLayout from "@/app/components/RootLayout";
 import React from "react";
 import ThreeDScene from "./ThreeDScene";
 import ParallaxHero from "@/app/components/ParallaxHero";
