@@ -1,6 +1,6 @@
 "use client"
 import { Barlow } from 'next/font/google'
-import "./globals.css";
+import "@/app/globals.css";
 import Head from "next/head";
 
 const barlow = Barlow({
