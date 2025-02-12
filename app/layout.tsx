@@ -26,7 +26,7 @@ export default function RootLayout({
         <meta name="description" content={metadata.description} />
         <title>{metadata.title}</title>
       </Head>
-      <body className={"font-barlow"}>
+      <body className={barlow.className}>
         {children}
       </body>
     </html>
