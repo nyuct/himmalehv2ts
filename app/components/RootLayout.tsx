@@ -5,7 +5,7 @@ import Header from './Header'
 import { ReactLenis } from 'lenis/react'
 import 'lenis/dist/lenis.css'
 import { useGSAP } from '@gsap/react'
-import { useRef, useEffect } from 'react'
+import { useRef } from 'react'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
 import SplitType from 'split-type'
 import gsap from 'gsap'
@@ -25,7 +25,7 @@ export default function RootLayout({
         () => {
             const splitTypes = document.querySelectorAll('.reveal-type')
             if (splitTypes) {
-                splitTypes.forEach((char, i) => {
+                splitTypes.forEach((char) => {
                     const bg = (char as HTMLElement).dataset.bgColor
                     const fg = (char as HTMLElement).dataset.fgColor
                     const text = new SplitType(char as HTMLElement, { types: 'words' })

@@ -3,6 +3,7 @@ import React, { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import gsap from "gsap";
+import Image from "next/image";
 
 interface ProductFooterProps {
   heading: string;
@@ -62,15 +63,17 @@ const ProductFooter: React.FC<ProductFooterProps> = ({
   return (
     <section ref={aboutRef}>
       <div className="position-relative sticky-dots-animation-2">
-        <img
+        <Image
           src={`${process.env.NEXT_PUBLIC_IMG_SRC}${leftImg}`}
           className="sticky-dots-left"
           alt="Left Dots"
+          unoptimized={true}
         />
-        <img
+        <Image
           src={`${process.env.NEXT_PUBLIC_IMG_SRC}${rightImg}`}
           className="sticky-dots-right"
           alt="Right Dots"
+          unoptimized={true}
         />
         <div
           className="reveal-type sticky-dots-animation mx-auto text-center my-5 position-relative"
@@ -85,10 +88,11 @@ const ProductFooter: React.FC<ProductFooterProps> = ({
             <p className="text-body">{para}</p>
             <br />
             <div>
-              <img
+              <Image
                 src={`${process.env.NEXT_PUBLIC_IMG_SRC}${logo}`}
                 className="img-fluid"
                 alt="Kandi Logo"
+                unoptimized={true}
                 width={500}
               />
             </div>

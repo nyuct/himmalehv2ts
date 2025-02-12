@@ -42,7 +42,7 @@ export default function HeroSection() {
             end: "150% 50%",
             markers: false,
             scrub: 1,
-            onToggle: self => {
+            onToggle: () => {
               const waterAudioElement = document.querySelector(".waterAudio");
               if (waterAudioElement) {
                 waterAudioElement.classList.toggle("fixed-bottel");

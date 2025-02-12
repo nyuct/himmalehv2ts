@@ -48,10 +48,11 @@ const HomeBanner = () => {
       id="distillerySection"
     >
       <div id="grow">
-        <img
+        <Image
           src={`${process.env.NEXT_PUBLIC_IMG_SRC}distillery-square.jpg`}
           alt="img"
           className="grow-img"
+          unoptimized={true}
         />
       </div>
     </section>

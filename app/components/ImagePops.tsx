@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useRef } from "react";
 import ImageTrail from "./utils";
+import Image from "next/image";
 
 const ImagePops = () => {
   const contentRef = useRef(null);
@@ -16,11 +17,12 @@ const ImagePops = () => {
   return (
     <div className="imagepops-outer" ref={contentRef}>
       {Array.from({ length: 12 }, (_, i) => (
-        <img
+        <Image
           key={i}
           className="content__img"
           src={`${process.env.NEXT_PUBLIC_IMG_SRC}/popsImg/int_${i + 1}-min.jpg`}
           alt={`Image ${i + 1}`}
+          unoptimized={true}
         />
       ))}
       <div className="content__title text-title-xl header-title-h1 color-dark-blue">UNORDINARY</div>

@@ -8,10 +8,10 @@ import { useEffect, useRef } from "react";
 export default function KumaonNandi() {
   const mountRef = useRef<HTMLDivElement>(null);
   const initialized = useRef<boolean>(false);
-  const isClient = typeof window !== "undefined"; // Check for client-side only
 
   useEffect(() => {
-    if (!isClient || initialized.current) return; // Prevent SSR execution and double mount
+    const mountNode = mountRef.current;
+    if (!mountNode || initialized.current) return; // Prevent SSR execution and double mount
     initialized.current = true;
 
     // Scene setup
@@ -23,9 +23,7 @@ export default function KumaonNandi() {
     const renderer = new THREE.WebGLRenderer({ alpha: true, logarithmicDepthBuffer: true });
     renderer.shadowMap.enabled = true;
     renderer.setSize(window.innerWidth, window.innerHeight);
-    if (mountRef.current) {
-      mountRef.current.appendChild(renderer.domElement);
-    }
+    mountNode.appendChild(renderer.domElement);
 
     // Cache busting for 304 Not Modified
     const cacheBust = () => {
@@ -141,11 +139,11 @@ export default function KumaonNandi() {
           child.material.dispose();
         }
       });
-      if (mountRef.current) {
-        mountRef.current.removeChild(renderer.domElement);
+      if (mountNode) {
+        mountNode.removeChild(renderer.domElement);
       }
     };
-  }, [isClient]); // Depend on client-side check
+  }, []); // Depend on nothing
 
   return (
     <div ref={mountRef} id="container3D" />
