@@ -5,6 +5,7 @@
 @use "./_product.scss";
 @use "./_label.scss";
 @use "./_footer.scss";
+
 @mixin mastere {
 	font-family: 'Barlow', sans-serif;
 	line-height: 1;
@@ -13,19 +14,18 @@
 * {
 	box-sizing: border-box;
 }
-:root {
-    --c1: #283337;
-    --c2: #b7dcdf;
-    --c3: #617680;
-    --c4: #a1c2c5;
-    --c5: #324045;
-    --c6: #aed1d4;
-}
-body {
-	@include mastere;
-	font-family: 'Barlow', sans-serif;
-	margin: 0 !important;
 
+:root {
+	--c1: #283337;
+	--c2: #b7dcdf;
+	--c3: #617680;
+	--c4: #a1c2c5;
+	--c5: #324045;
+	--c6: #aed1d4;
+}
+
+body {
+	font-family: 'Barlow', sans-serif;
 }
 
 ul {
