@@ -889,6 +889,7 @@ section.full {
 // Title Large
 .text-title-xl {
   font-size: 8rem; // Equivalent to 96px
+  line-height: 1;
 }
 
 .color-blue {
@@ -900,5 +901,5 @@ section.full {
 }
 
 .position-relative {
-  position: relative;
+  position: relative !important;
 }

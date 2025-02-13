@@ -1,5 +1,5 @@
  "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
@@ -9,23 +9,41 @@ import gsap from "gsap";
 export const AboutHome = () => {
   const containerAbout = useRef(null);
   gsap.registerPlugin(useGSAP, ScrollTrigger);
-  useGSAP(
-    () => {
-      const bg_animation = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".hind-kush",
-          start: "0% 100%",
-          end: "100% 100%",
-          markers: false,
-          scrub: 1,
-        },
-      });
-      bg_animation.to(".hind-kush-img", { y: -300 });
-    },
-    { scope: containerAbout }
-  );
+
+  useEffect(() => {
+    const bg_animation = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".hind-kush",
+        start: "0% 100%",
+        end: "100% 100%",
+        markers: false,
+        scrub: 1,
+      },
+    });
+    bg_animation.to(".hind-kush-img", { y: -300 });
+
+    const backgroundAnimation = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".distalarySection",
+        start: "0% 0%",
+        end: "100% 110%",
+        markers: true,
+        onEnter: () => backgroundAnimation.to("body", { backgroundColor: "#283337" }),
+        onEnterBack: () => backgroundAnimation.to("body", { backgroundColor: "#283337" }),
+        onLeave: () => backgroundAnimation.to("body", { backgroundColor: "#ffffff" }),
+        onLeaveBack: () => backgroundAnimation.to("body", { backgroundColor: "#ffffff" }),
+
+      },
+    });
+
+    return () => {
+      gsap.killTweensOf(".hind-kush-img");
+      gsap.killTweensOf(".reveal-type");
+    };
+  }, []);
+
   return (
-    <div className="distalarySection backgroundAnimation">
+    <div className="distalarySection backgroundAnimation position-relative">
       <div
         className="text-center "
         data-body-bg="#283337"

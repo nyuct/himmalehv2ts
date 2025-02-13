@@ -36,12 +36,16 @@ const ProductImages = () => {
               alt={name}
               className="ImageReavles"
               unoptimized={true}
+              width={500}
+              height={600}
             />
             <Image
               src={`${process.env.NEXT_PUBLIC_IMG_SRC}${reavle}`}
               alt={name}
               className="ImageReavles-reavle px-3"
               unoptimized={true}
+              width={500}
+              height={600}
             />
           </div>
         );

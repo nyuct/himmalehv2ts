@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import gsap from "gsap";
@@ -22,13 +22,20 @@ const ProductFooter: React.FC<ProductFooterProps> = ({
 }) => {
   gsap.registerPlugin(ScrollTrigger);
   const aboutRef = useRef<HTMLDivElement | null>(null);
+  const tl = useRef<gsap.core.Timeline | null>(null);
+
+  useEffect(() => {
+    return () => {
+      tl.current?.kill();
+    };
+  }, []);
 
   useGSAP(
     () => {
       if (typeof window !== "undefined") {
         const stickyAnimation = document.querySelector(".sticky-dots-animation-2");
         if (stickyAnimation) {
-          gsap
+          tl.current = gsap
             .timeline({
               scrollTrigger: {
                 trigger: stickyAnimation,
@@ -41,7 +48,7 @@ const ProductFooter: React.FC<ProductFooterProps> = ({
             .to(".sticky-dots-left", {
               y: 200,
             });
-          gsap
+          tl.current = gsap
             .timeline({
               scrollTrigger: {
                 trigger: stickyAnimation,
@@ -68,12 +75,16 @@ const ProductFooter: React.FC<ProductFooterProps> = ({
           className="sticky-dots-left"
           alt="Left Dots"
           unoptimized={true}
+          width={100}
+          height={200}
         />
         <Image
           src={`${process.env.NEXT_PUBLIC_IMG_SRC}${rightImg}`}
           className="sticky-dots-right"
           alt="Right Dots"
           unoptimized={true}
+          width={100}
+          height={200}
         />
         <div
           className="reveal-type sticky-dots-animation mx-auto text-center my-5 position-relative"
@@ -93,7 +104,7 @@ const ProductFooter: React.FC<ProductFooterProps> = ({
                 className="img-fluid"
                 alt="Kandi Logo"
                 unoptimized={true}
-                width={500}
+                fill={true}
               />
             </div>
             <br />

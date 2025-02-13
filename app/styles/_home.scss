@@ -1,17 +1,14 @@
-.main-container {
-    background-color: #ffffff;
-    transition: background-color 2s;
 
-    &.active {
-        background-color: #283337;
-    }
-}
 
 .header-title {
     line-height: .9;
-    padding-top: 30px;
-    position: fixed;
+    padding-top: 130px;
     width: 100%;
+    position: fixed;
+
+    &.header-fixed {
+
+    }
 }
 
 .header-image-animation {
@@ -120,10 +117,7 @@ video.full {
     .reveal-type {
         max-width: 700px;
         margin: 0 auto;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+      
     }
 
     svg {
@@ -466,6 +460,7 @@ a:focus {
     position: relative;
     padding: 200px auto;
     min-height: 2000px;
+
     .content {
         text-align: center;
         max-width: 100%;
@@ -533,77 +528,77 @@ a:focus {
         background-size: cover !important;
 
         &.c1 {
-            left: calc(-10px + 290px );
+            left: calc(-10px + 290px);
             top: 327px;
             height: 280px;
             width: 280px;
         }
 
         &.c2 {
-            left: calc(-10px + 35px );
+            left: calc(-10px + 35px);
             top: 567px;
             height: 225px;
             width: 225px;
         }
 
         &.c3 {
-            left: calc(-10px - 461px );
+            left: calc(-10px - 461px);
             top: 327px;
             height: 300px;
             width: 300px;
         }
 
         &.c4 {
-            left: calc(-10px + 418px );
+            left: calc(-10px + 418px);
             top: 697px;
             height: 270px;
             width: 270px;
         }
 
         &.c5 {
-            left: calc(-10px - 235px );
+            left: calc(-10px - 235px);
             top: 633px;
             height: 280px;
             width: 280px;
         }
 
         &.c6 {
-            left: calc(-10px - 587px );
+            left: calc(-10px - 587px);
             top: 679px;
             height: 200px;
             width: 200px;
         }
 
         &.c7 {
-            left: calc(-10px + 144px );
+            left: calc(-10px + 144px);
             top: 837px;
             height: 280px;
             width: 280px;
         }
 
         &.c8 {
-            left: calc(-10px - 185px );
+            left: calc(-10px - 185px);
             top: 968px;
             height: 220px;
             width: 220px;
         }
 
         &.c9 {
-            left: calc(-10px - 467px );
+            left: calc(-10px - 467px);
             top: 935px;
             height: 320px;
             width: 320px;
         }
 
         &.c10 {
-            left: calc(-10px + 333px );
+            left: calc(-10px + 333px);
             top: 1133px;
             height: 200px;
             width: 200px;
         }
 
         &.c11 {
-            left: calc(-10px - 13px );
+            left: calc(-10px - 13px);
             top: 1221px;
             height: 180px;
             width: 180px;

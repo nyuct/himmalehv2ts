@@ -20,9 +20,11 @@ const ImagePops = () => {
         <Image
           key={i}
           className="content__img"
-          src={`${process.env.NEXT_PUBLIC_IMG_SRC}/popsImg/int_${i + 1}-min.jpg`}
+          src={`${process.env.NEXT_PUBLIC_IMG_SRC}popsImg/int_${i + 1}-min.jpg`}
           alt={`Image ${i + 1}`}
           unoptimized={true}
+          width={250}
+          height={400}
         />
       ))}
       <div className="content__title text-title-xl header-title-h1 color-dark-blue">UNORDINARY</div>

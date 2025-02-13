@@ -1,69 +1,68 @@
 "use client";
 import Image from "next/image";
-import { useRef } from "react";
+import { useRef, useEffect } from "react";
 import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
 export default function HeroSection() {
   const containerRef = useRef(null);
-  gsap.registerPlugin(useGSAP, ScrollTrigger);
 
-  useGSAP(
-    () => {
-      if (typeof window !== "undefined") {
-        gsap.from(document.querySelectorAll(".header-title-h1"), {
-          y: 200,
-          duration: 2,
-          ease: "power4",
-          stagger: 0.1,
-        }); // <-- automatically reverted
-        gsap.from(document.querySelector(".header-image img"), {
-          y: -300,
-          duration: 2,
-        }); // <-- automatically reverted
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
 
-        const maountain_animation = gsap.timeline({
-          scrollTrigger: {
-            trigger: ".header-image-animation",
-            start: "75% 75%",
-            end: "75% 0%",
-            markers: false,
-            scrub: 1,
-          },
-        });
-        maountain_animation.to(".header-title", {
-          position: "absolute",
-          top: "0%",
-        });
-        const bottel_animation = gsap.timeline({
-          scrollTrigger: {
-            trigger: ".waterAudio",
-            start: "0% 46%",
-            end: "150% 50%",
-            markers: false,
-            scrub: 1,
-            onToggle: () => {
-              const waterAudioElement = document.querySelector(".waterAudio");
-              if (waterAudioElement) {
-                waterAudioElement.classList.toggle("fixed-bottel");
-              }
-            },
-          },
-        });
-        bottel_animation.to(".header-image", {
-          opacity: "0",
-        });
-        bottel_animation.to(
-          ".waterAudio",
-          {
-            opacity: "0",
-          },
-          "+=2.5"
-        );
-      }
-    },
-    { scope: containerRef }
-  ); // <-- scope is for selector text (optional)
+    gsap.from(document.querySelectorAll(".header-title-h1"), {
+      y: 200,
+      duration: 2,
+      ease: "power4",
+      stagger: 0.1,
+    });
+    gsap.from(document.querySelector(".header-image img"), {
+      y: -300,
+      duration: 2,
+    });
+
+    const maountain_animation = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".header-image-animation",
+        start: "50% 75%",
+        end: "50% 0%",
+        markers: false,
+        scrub: 1,
+      },
+    });
+    maountain_animation.to(".header-title", {
+      top: "-100%",
+    });
+    const bottel_animation = gsap.timeline({
+      scrollTrigger: {
+        trigger: ".waterAudio",
+        start: "0% 46%",
+        end: "150% 50%",
+        markers: false,
+        scrub: 1,
+        onToggle: () => {
+          const waterAudioElement = document.querySelector(".waterAudio");
+          if (waterAudioElement) {
+            waterAudioElement.classList.toggle("fixed-bottel");
+          }
+        },
+      },
+    });
+    bottel_animation.to(".header-image", {
+      opacity: "0",
+    });
+    bottel_animation.to(
+      ".waterAudio",
+      {
+        opacity: "0",
+      },
+      "+=2.5"
+    );
+
+    return () => {
+      gsap.killTweensOf("*");
+    };
+  }, []);
 
   return (
     <div
@@ -71,7 +70,7 @@ export default function HeroSection() {
       ref={containerRef}
     >
       <section className="position-relative">
-        <div className="header-title">
+        <div className="header-title ">
           <div className="text-title-xl header-title-h1 color-blue fw-bold">100%</div>
           <div className="text-title-xl header-title-h1 color-blue fw-bold">HIMALAYAN</div>
         </div>
@@ -116,3 +115,4 @@ export default function HeroSection() {
     </div>
   );
 }
+

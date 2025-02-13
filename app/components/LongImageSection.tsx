@@ -13,14 +13,7 @@ interface LongImageSectionProps {
 
 const LongImageSection = ({ page, text, imgSrc }: LongImageSectionProps) => {
   const containerAbout = useRef(null);
-  const tl = useRef(gsap.timeline({ paused: true }));
-
-  useEffect(() => {
-    if (typeof window !== "undefined" && tl.current.scrollTrigger) {
-      tl.current.scrollTrigger.refresh();
-    }
-    gsap.registerPlugin(ScrollTrigger);
-  }, []);
+  const tl = useRef(gsap.timeline());
 
   useGSAP(
     () => {
@@ -38,7 +31,7 @@ const LongImageSection = ({ page, text, imgSrc }: LongImageSectionProps) => {
               start: `top top`,
               end: `bottom top`,
               scrub: true,
-              markers: false,
+              markers: true,
             },
           })
           .to(".separator--down .separator__path", {
@@ -49,7 +42,7 @@ const LongImageSection = ({ page, text, imgSrc }: LongImageSectionProps) => {
               start: `top bottom`,
               end: `bottom bottom`,
               scrub: true,
-              markers: false,
+              markers: true,
             },
           });
       }
@@ -58,7 +51,7 @@ const LongImageSection = ({ page, text, imgSrc }: LongImageSectionProps) => {
   );
 
   return (
-    <section ref={containerAbout} className="longSection-containter">
+    <section ref={containerAbout} className="longSection-containter" style={{ backgroundImage: `url(${process.env.NEXT_PUBLIC_IMG_SRC}${imgSrc})`, backgroundSize: "cover", height: "500vh" }}>
       <svg
         className="separator separator--top top"
         width="100%"
@@ -82,23 +75,21 @@ const LongImageSection = ({ page, text, imgSrc }: LongImageSectionProps) => {
             </div>
           ))}
       </div>
-
-      <Image
-        className="longImage"
-        src={`${process.env.NEXT_PUBLIC_IMG_SRC}${imgSrc}`}
-        alt="longImage"
-        unoptimized={true}
-        height={500}
-        width={500}
-        style={{ width: "100%", height: "auto" }}
-      />
-      <p
-        className="reveal-type text-title"
-        data-bg-color="#4b4b4b"
-        data-fg-color="#ffffff"
-      >
-        {text}
-      </p>
+      <div style={{
+        display: 'flex',
+        width: '100%',
+        height: '100%',
+        alignItems: 'center',
+        justifyContent: 'center'
+      }}>
+        <p
+          className="reveal-type text-title"
+          data-bg-color="#4b4b4b"
+          data-fg-color="#ffffff"
+        >
+          {text}
+        </p>
+      </div>
 
       <svg
         className="separator separator--down bottom"

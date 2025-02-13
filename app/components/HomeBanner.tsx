@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useEffect } from "react";
 import Image from "next/image";
 import { useRef } from "react";
 import gsap from "gsap";
@@ -10,6 +10,13 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 const HomeBanner = () => {
   const HeroBannerRef = useRef(null);
   gsap.registerPlugin(useGSAP, ScrollTrigger);
+
+  useEffect(() => {
+    return () => {
+      gsap.globalTimeline.clear();
+      ScrollTrigger.getAll().forEach((t) => t.kill());
+    };
+  }, []);
 
   useGSAP(
     () => {
@@ -48,11 +55,10 @@ const HomeBanner = () => {
       id="distillerySection"
     >
       <div id="grow">
-        <Image
+        <img
           src={`${process.env.NEXT_PUBLIC_IMG_SRC}distillery-square.jpg`}
           alt="img"
           className="grow-img"
-          unoptimized={true}
         />
       </div>
     </section>
@@ -60,3 +66,4 @@ const HomeBanner = () => {
 };
 
 export default HomeBanner;
+

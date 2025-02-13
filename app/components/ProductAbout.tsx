@@ -1,8 +1,9 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Image from "next/image";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 interface ProductAboutProps {
   heading: string;
@@ -18,6 +19,13 @@ const ProductAbout: React.FC<ProductAboutProps> = ({
   rightImg,
 }) => {
   const aboutRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    return () => {
+      gsap.globalTimeline.clear();
+      ScrollTrigger.getAll().forEach((t) => t.kill());
+    };
+  }, []);
 
   useGSAP(
     () => {
@@ -65,11 +73,17 @@ const ProductAbout: React.FC<ProductAboutProps> = ({
           src={`${process.env.NEXT_PUBLIC_IMG_SRC}${leftImg}`}
           className="sticky-dots-left"
           alt="Left Dots"
+          unoptimized={true}
+          width={100}
+          height={200}
         />
         <Image
           src={`${process.env.NEXT_PUBLIC_IMG_SRC}${rightImg}`}
           className="sticky-dots-right"
           alt="Right Dots"
+          unoptimized={true}
+          width={100}
+          height={200}
         />
         <div
           className="reveal-type sticky-dots-animation mx-auto text-center my-5 position-relative"

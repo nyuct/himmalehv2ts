@@ -7,6 +7,7 @@ import ProductAbout from "@/app/components/ProductAbout";
 import ProductFooter from "@/app/components/ProductFooter";
 import LongImageSection from "@/app/components/LongImageSection";
 import ProductImages from "@/app/components/ProductImages";
+
 const page = () => {
   const aboutPara = [
     "Every bottle of Bandarful is expressive and full of life as a barrel of monkeys. And why not? After all, it is the Himalayan Langur and its adventures across barley fields, cane farms, coffee estates and fruit trees that'’'s behind this farm to bottle, cold brew, Coffee Liqueur. The drink exudes natural goodness and a flavour that is unmistakably India at heart.",
@@ -75,3 +76,4 @@ const page = () => {
 };
 
 export default page;
+

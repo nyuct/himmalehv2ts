@@ -4,6 +4,7 @@ import type { JSX } from 'react'
 import Header from './Header'
 import { ReactLenis } from 'lenis/react'
 import 'lenis/dist/lenis.css'
+import { useEffect, useLayoutEffect } from 'react'
 import { useGSAP } from '@gsap/react'
 import { useRef } from 'react'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
@@ -20,7 +21,18 @@ export default function RootLayout({
     children: React.ReactNode
 }): JSX.Element {
     const containerBody = useRef<HTMLBodyElement>(null)
-    gsap.registerPlugin(ScrollTrigger)
+
+    useEffect(() => {
+        const resetGSAP = () => {
+            ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+            ScrollTrigger.refresh();
+        };
+
+        return () => {
+            resetGSAP();
+        };
+    }, []);
+
     useGSAP(
         () => {
             const splitTypes = document.querySelectorAll('.reveal-type')

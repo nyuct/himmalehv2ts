@@ -13,12 +13,13 @@ const metadata = {
   description: "Your site description"
 }
 
-export default function RootLayout({
+export default function Layout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
+    
     <html lang="en">
       <Head>
         <meta charSet="utf-8" />

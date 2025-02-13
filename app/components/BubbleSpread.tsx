@@ -41,6 +41,11 @@ const BubbleSpread: React.FC = () => {
     };
 
     circleExpand();
+
+    return () => {
+      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+      gsap.globalTimeline.clear();
+    };
   }, []);
 
   return (
