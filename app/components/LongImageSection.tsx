@@ -1,8 +1,6 @@
 "use client";
 import { useGSAP } from "@gsap/react";
-import { useEffect, useRef } from "react";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import Image from "next/image";
+import { useRef } from "react";
 import gsap from "gsap";
 
 interface LongImageSectionProps {
