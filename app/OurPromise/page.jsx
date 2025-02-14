@@ -29,9 +29,9 @@ const Page = () => {
       elements.forEach(el => {
         gsap.fromTo(
           el,
-          { y: window.innerWidth > 768 ? "-20%" : 0 },
+          { y: window.innerWidth > 768 ? "-20%" : "-10%" },
           {
-            y: window.innerWidth > 768 ? "20%" : 0,
+            y: window.innerWidth > 768 ? "20%" : "10%",
             ease: "power1.inOut",
             duration: 0.3,
             scrollTrigger: {
@@ -112,7 +112,7 @@ const Page = () => {
           </div>
           {productData.map(
             (item, index) =>
-              index >= 2 &&
+              index >= 3 &&
               index <= 4 && (
                 <div
                   key={index}
@@ -137,7 +137,7 @@ const Page = () => {
           </section>
           {productData.map(
             (item, index) =>
-              index >= 4 && (
+              index >= 5 && (
                 <div
                   key={index}
                   className={`div-parallex div-parallex-${index + 1}`}

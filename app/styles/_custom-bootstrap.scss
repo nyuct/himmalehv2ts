@@ -884,6 +884,10 @@ section.full {
 .text-title {
   font-size: 2.25rem; // Equivalent to 36px
   line-height: 1.5;
+
+  @media screen and (max-width: 1200px) {
+    font-size: 1.5rem; // Equivalent to 32px
+  }
 }
 
 // Title Large

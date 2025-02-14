@@ -117,7 +117,7 @@
     bottom: 0;
     width: 155px;
     z-index: 3;
-    height: 220px;
+    height: 200px;
     scale: 0.7;
     margin-top: -120px;
 
@@ -154,7 +154,7 @@
 
 
   .distalarySection {
-    padding: 100px 0 150px;
+    padding: 100px 0 50px;
 
     .content {
       gap: 15px;
@@ -200,58 +200,58 @@
     height: 120px !important;
 
     &.c1 {
-      left: 100px;
-      top: 103%;
+      left: -50%;
+      top: 200px;
     }
 
     &.c2 {
-      left: 100px;
-      top: 100%;
+      left: 0%;
+      top: 310px;
     }
 
     &.c3 {
-      left: 100px;
-      top: 130%;
+      left: 80%;
+      top: 200px;
     }
 
     &.c4 {
-      left: 100px;
-      top: 130%;
+      left: 100%;
+      top: 415px;
     }
 
     &.c5 {
-      left: 100px;
-      top: 153%;
+      left: -75%;
+      top: 400px;
     }
 
     &.c6 {
-      left: 100px;
-      top: 879px;
+      left: 0%;
+      top: 500px;
     }
 
     &.c7 {
-      left: 100px;
-      top: 976px;
+      left: 100%;
+    top: 640px;
     }
 
     &.c8 {
-      left: 100px;
-      top: 1012px;
+      left: -50%;
+      top: 641px;
     }
 
     &.c9 {
-      left: 150px;
-      top: 1152px;
+      left: 90%;
+      top: 794px;
     }
 
     &.c10 {
-      left: 100px;
-      top: 1133px;
+      left: -7%;
+      top: 801px;  
     }
 
     &.c11 {
-      left: 100px;
-      top: 1281px;
+      left: -40%;
+      top: 1001px;
     }
   }
 
@@ -517,5 +517,89 @@
   .card-detail {
     width: 35vw;
     flex-grow: 1;
+  }
+}
+@media (max-width: 766px) {
+  .labels-outer-sec .line__inner {
+    font-size: 20vw;
+  }
+
+  .mob-none {
+    display: none;
+  }
+
+  .section--3 {
+    margin-top: 20px !important;
+  }
+
+  .menu--right {
+    display: block;
+  }
+
+  .heading-style-2 {
+    font-size: 30px;
+  }
+
+  .mob-dis {
+    display: block;
+    font-size: 18vw !important;
+  }
+
+  .section--2,
+  .section--3 {
+    display: block !important;
+
+    .rotation-div {
+      display: none;
+    }
+  }
+
+  .our-labels {
+    flex-direction: column;
+    margin: 20px;
+  }
+
+  .labels-outer-sec .parallex-effect {
+    padding: 0 20px;
+    margin-top: 0 !important;
+    margin-bottom: 40px;
+
+    .dummy-img {
+      display: none;
+    }
+
+    .div-parallex {
+      height: unset;
+      width: 100%;
+      left: unset;
+      position: relative;
+      transform: none !important;
+      margin-bottom: 20px;
+
+      span {
+        z-index: 4;
+        font-size: 16px;
+        color: white;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        align-items: end;
+        display: flex;
+        justify-content: center;
+        padding-bottom: 56px;
+      }
+    }
+
+    .copy,
+    .title-copy {
+      position: relative;
+      width: 100%;
+      padding: 50px 0 !important;
+
+      h1,
+      h2 {
+        display: none;
+      }
+    }
   }
 }
