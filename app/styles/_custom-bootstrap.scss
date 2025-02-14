@@ -890,6 +890,14 @@ section.full {
 .text-title-xl {
   font-size: 8rem; // Equivalent to 96px
   line-height: 1;
+
+  @media screen and (max-width: 1200px) {
+    font-size: 6rem; // Equivalent to 72px
+  }
+  
+  @media screen and (max-width: 992px) {
+    font-size: 4rem; // Equivalent to 48px
+  }
 }
 
 .color-blue {

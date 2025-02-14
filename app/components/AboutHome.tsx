@@ -27,7 +27,7 @@ export const AboutHome = () => {
         trigger: ".distalarySection",
         start: "0% 0%",
         end: "100% 110%",
-        markers: true,
+        markers: false,
         onEnter: () => backgroundAnimation.to("body", { backgroundColor: "#283337" }),
         onEnterBack: () => backgroundAnimation.to("body", { backgroundColor: "#283337" }),
         onLeave: () => backgroundAnimation.to("body", { backgroundColor: "#ffffff" }),

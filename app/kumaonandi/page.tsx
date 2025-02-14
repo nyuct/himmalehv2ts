@@ -1,5 +1,6 @@
+"use client";
+
 import RootLayout from "@/app/components/RootLayout";
-import React from "react";
 import ThreeDScene from "./ThreeDScene";
 import ParallaxHero from "@/app/components/ParallaxHero";
 import RotateBottel from "@/app/components/RotateBottel";
@@ -8,6 +9,11 @@ import ProductFooter from "@/app/components/ProductFooter";
 import LongImageSection from "@/app/components/LongImageSection";
 import ProductImages from "@/app/components/ProductImages";
 import HorizontalCard from "@/app/components/HorizontalCard";
+import { useRef , useEffect } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+
 
 const page = () => {
   const aboutPara: string[] = [
@@ -59,6 +65,36 @@ const page = () => {
         "What raises a fine spirit? We say a universe of love and hands that nurture. From the artful distillers to the local plantation community, from the spirited foragers to the carefully selected partners who help source uncompromised botanicals from the region. From the passionate makers to the sisterhood in the hills that inspires the Gin with its femme power, Kumaon & I is a labour of love of a community that is diverse and nurturing.",
     },
   ];
+  const HeroBannerRef = useRef(null);
+  gsap.registerPlugin(useGSAP, ScrollTrigger);
+
+  useEffect(() => {
+    return () => {
+      gsap.globalTimeline.clear();
+      ScrollTrigger.getAll().forEach((t) => t.kill());
+    };
+  }, []);
+
+  useGSAP(
+    () => {
+      const grow = document.querySelector(".canvas-container");
+      if (grow) {
+        const growTl = gsap.timeline({
+          scrollTrigger: {
+            trigger: ".canvas-container",
+            start: "top 00%",
+            end: "100% 100%",
+            scrub: 1,
+            pin: ".horizontal-scroll",
+            markers: false,
+          },
+        });
+        growTl.to(".horizontal-scroll", { transform: "translateX(-200%)", ease: "none" });
+        growTl.to(".horizontal-scroll", { transform: "translateX(-200%)", ease: "none" });
+      }
+    },
+    { scope: HeroBannerRef }
+  );
   return (
     <RootLayout>
       <div className="product-page">
@@ -73,7 +109,7 @@ const page = () => {
           leftImg="dots-left.png"
           rightImg="dots-right.png"
         />
-        <section className="horizontalSection">
+        <section className="horizontalSection"  ref={HeroBannerRef}>
           <div className="canvas-container">
             <ThreeDScene />
             <div className="horizontal-scroll">

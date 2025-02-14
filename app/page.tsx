@@ -7,7 +7,7 @@ import LongImageSection from "@/app/components/LongImageSection";
 import HomeBanner from "@/app/components/HomeBanner";
 import ImagePops from "@/app/components/ImagePops";
 import BubbleSpread from "@/app/components/BubbleSpread";
-import { useEffect } from "react";
+import { useEffect } from "react"; 
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 export default function Home() {

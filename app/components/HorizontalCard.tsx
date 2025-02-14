@@ -29,18 +29,18 @@ const CardDetail: React.FC<CardDetailProps> = ({
       onKeyPress={onClick}
     >
       <div className="flip-box-front text-center">
-        <Image
+        <img
           src={`${process.env.NEXT_PUBLIC_IMG_SRC}${frontSvg}`}
           alt="Card Icon"
           className="flip-box-header inner"
-          width={100}
-          height={100}
+         
         />
         <Image
           src={`${process.env.NEXT_PUBLIC_IMG_SRC}${frontImage}`}
           alt="Card Front"
           className="flip-box-header front-card"
           width={300}
+          unoptimized
           height={400}
         />
       </div>
@@ -50,6 +50,7 @@ const CardDetail: React.FC<CardDetailProps> = ({
           alt="Card Back"
           className="front-card"
           width={300}
+          unoptimized
           height={400}
         />
         <div className="inner">

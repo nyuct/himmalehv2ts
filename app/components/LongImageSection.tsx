@@ -26,10 +26,10 @@ const LongImageSection = ({ page, text, imgSrc }: LongImageSectionProps) => {
             attr: { d: pathToTop || "" },
             scrollTrigger: {
               trigger: ".separator--top .separator__path",
-              start: `top top`,
+              start: `top 20%`,
               end: `bottom top`,
               scrub: true,
-              markers: true,
+              markers: false,
             },
           })
           .to(".separator--down .separator__path", {
@@ -38,9 +38,9 @@ const LongImageSection = ({ page, text, imgSrc }: LongImageSectionProps) => {
             scrollTrigger: {
               trigger: ".separator--down",
               start: `top bottom`,
-              end: `bottom bottom`,
+              end: `bottom 80%`,
               scrub: true,
-              markers: true,
+              markers: false,
             },
           });
       }
@@ -49,7 +49,7 @@ const LongImageSection = ({ page, text, imgSrc }: LongImageSectionProps) => {
   );
 
   return (
-    <section ref={containerAbout} className="longSection-containter" style={{ backgroundImage: `url(${process.env.NEXT_PUBLIC_IMG_SRC}${imgSrc})`, backgroundSize: "cover", height: "500vh" }}>
+    <section ref={containerAbout} className="longSection-containter" style={{ backgroundImage: `url(${process.env.NEXT_PUBLIC_IMG_SRC}${imgSrc})`, backgroundSize: "cover" }}>
       <svg
         className="separator separator--top top"
         width="100%"

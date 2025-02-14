@@ -1,7 +1,9 @@
-@media only screen and (max-width: 600px) {
+@media (max-width: 600px) {
   .p-style-3 {
     width: 90% !important;
   }
+
+
   .modal-age-popup {
     padding-top: 75px;
     background-size: 196vh;
@@ -150,9 +152,6 @@
     transform: rotateY(180deg);
   }
 
-  .hindKush {
-    // padding: 0 40px 0 !important;
-  }
 
   .distalarySection {
     padding: 100px 0 150px;
@@ -196,62 +195,62 @@
     align-items: center;
   }
 
-  .circle-block {
+  .bubble-section .circle-block {
     width: 120px !important;
     height: 120px !important;
 
     &.c1 {
-      left: 5%;
+      left: 100px;
       top: 103%;
     }
 
     &.c2 {
-      left: 60%;
+      left: 100px;
       top: 100%;
     }
 
     &.c3 {
-      left: 10%;
+      left: 100px;
       top: 130%;
     }
 
     &.c4 {
-      left: 50%;
+      left: 100px;
       top: 130%;
     }
 
     &.c5 {
-      left: 73%;
+      left: 100px;
       top: 153%;
     }
 
     &.c6 {
-      left: 34%;
+      left: 100px;
       top: 879px;
     }
 
     &.c7 {
-      left: 2%;
+      left: 100px;
       top: 976px;
     }
 
     &.c8 {
-      left: 53%;
+      left: 100px;
       top: 1012px;
     }
 
     &.c9 {
-      left: 250px;
+      left: 150px;
       top: 1152px;
     }
 
     &.c10 {
-      left: 10%;
+      left: 100px;
       top: 1133px;
     }
 
     &.c11 {
-      left: 36%;
+      left: 100px;
       top: 1281px;
     }
   }
@@ -451,10 +450,6 @@
       height: 325px;
       width: 100%;
     }
-
-    .clip-add {
-      height: 571px !important;
-    }
   }
 
   .distalarySection {
@@ -501,15 +496,23 @@
   .display-block {
     display: block;
   }
+
+  .imagepops-outer {
+    img {
+      display: none;
+    }
+  }
 }
 
 .nyuct {
   display: block;
   margin-top: 8px;
 }
-.dropdown-content{
+
+.dropdown-content {
   padding-left: 0px;
 }
+
 @media (min-width: 1024px) and (max-width: 1200px) {
   .card-detail {
     width: 35vw;

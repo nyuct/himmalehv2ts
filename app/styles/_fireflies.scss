@@ -6,6 +6,10 @@
     transform: translate(-50%, -50%);
     width: 800px;
     height: 800px;
+
+    @media screen and (max-width: 600px) {
+        width: 100%;
+    }
   }
   
   .firefly {

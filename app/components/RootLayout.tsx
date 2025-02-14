@@ -23,6 +23,22 @@ export default function RootLayout({
     const containerBody = useRef<HTMLBodyElement>(null)
 
     useEffect(() => {
+
+        const rotateBottelAnims = gsap.utils.toArray(".rotate-bottel-animate");
+
+        rotateBottelAnims.forEach((el) => {
+            const farmToBottle = gsap.timeline({
+                scrollTrigger: {
+                    trigger: el as HTMLElement,
+                    start: "top 50%",
+                    end: "bottom 0%",
+                    scrub: 1,
+                    markers: false,
+                },
+            });
+
+            farmToBottle.to(el as HTMLElement, { rotate: 360 });
+        });
         const resetGSAP = () => {
             ScrollTrigger.getAll().forEach(trigger => trigger.kill());
             ScrollTrigger.refresh();
