@@ -69,7 +69,6 @@ export default function KumaonNandi() {
         "https://dl.polyhaven.org/file/ph-assets/HDRIs/hdr/2k/epping_forest_01_2k.hdr",
         (texture) => {
           texture.mapping = THREE.EquirectangularReflectionMapping;
-          scene.background = texture;
           scene.environment = texture;
         }
       );

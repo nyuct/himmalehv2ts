@@ -26,6 +26,7 @@ const CardDetail: React.FC<CardDetailProps> = ({
       role="button"
       tabIndex={0}
       onClick={onClick}
+      onMouseEnter={onClick}
       onKeyPress={onClick}
     >
       <div className="flip-box-front text-center">

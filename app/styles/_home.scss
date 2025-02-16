@@ -55,10 +55,9 @@
         top: -95px;
         left: 50%;
         width: 12%;
-        height: 0px;
+        height: 100px;
         background: #080809;
         transform: translateX(-50%);
-        border-radius: 200px;
 
     }
 }
@@ -149,7 +148,7 @@ video.full {
 .longSection-containter {
     margin: 0px auto;
     position: relative;
-    max-width: 100vh;
+    max-width: 100vw;
     overflow: hidden;
     height: 500vh;
 

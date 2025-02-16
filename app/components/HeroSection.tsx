@@ -6,16 +6,6 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 export default function HeroSection() {
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const [isWindowWidth, setisWindowWidth] = useState<boolean>(false);
-  console.log(isWindowWidth )
-  useEffect(() => {
-    const handleResize = () => {
-      setisWindowWidth(window.innerWidth > 1024);
-    };
-    window.addEventListener("resize", handleResize);
-    handleResize();
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -26,12 +16,12 @@ export default function HeroSection() {
       ease: "power4",
       stagger: 0.1,
     });
-    isWindowWidth && gsap.from(document.querySelector(".header-image img"), {
+    gsap.from(document.querySelector(".header-image img"), {
       y: -300,
       duration: 2,
     });
 
-     const maountain_animation = gsap.timeline({
+    const maountain_animation = gsap.timeline({
       scrollTrigger: {
         trigger: ".header-image-animation",
         start: "50% 75%",
@@ -40,8 +30,9 @@ export default function HeroSection() {
         scrub: 1,
       },
     });
-    isWindowWidth && maountain_animation.to(".header-title", {
-      top: "-10%",
+    maountain_animation.to(".header-title", {
+      top: "-40%",
+      position: "absolute",
     });
     const bottel_animation = gsap.timeline({
       scrollTrigger: {
@@ -51,18 +42,17 @@ export default function HeroSection() {
         markers: false,
         scrub: 1,
         onToggle: () => {
-
           const waterAudioElement = document.querySelector(".waterAudio");
-          if (waterAudioElement && isWindowWidth ) {
+          if (waterAudioElement) {
             waterAudioElement.classList.toggle("fixed-bottel");
           }
         },
       },
     });
-    isWindowWidth && bottel_animation.to(".header-image", {
+    bottel_animation.to(".header-image", {
       opacity: "0",
     });
-    isWindowWidth && bottel_animation.to(
+    bottel_animation.to(
       ".waterAudio",
       {
         opacity: "0",
@@ -126,4 +116,5 @@ export default function HeroSection() {
     </div>
   );
 }
+
 
