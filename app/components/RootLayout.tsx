@@ -12,8 +12,8 @@ import SplitType from 'split-type'
 import gsap from 'gsap'
 import Footer from '../components/Footer'
 import Layout from '../layout'
+import AgeModal from './AgeModal'
 import "@/app/styles/master.scss"
-
 
 export default function RootLayout({
     children,
@@ -37,7 +37,7 @@ export default function RootLayout({
                 },
             });
 
-            farmToBottle.to(el as HTMLElement, { rotate: 360 });
+            farmToBottle.to(el as HTMLElement, { rotate: -360 });
         });
         const resetGSAP = () => {
             ScrollTrigger.getAll().forEach(trigger => trigger.kill());
@@ -48,7 +48,7 @@ export default function RootLayout({
             resetGSAP();
         };
     }, []);
-
+ 
     useGSAP(
         () => {
             const splitTypes = document.querySelectorAll('.reveal-type')
@@ -87,9 +87,12 @@ export default function RootLayout({
                 <main
                     ref={containerBody}
                 >
+
+                    <AgeModal />
                     <Header />
                     {children}
                     <Footer />
+
                 </main>
             </ReactLenis>
         </Layout>

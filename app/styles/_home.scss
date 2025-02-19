@@ -8,7 +8,48 @@
         position: relative;
     }
 }
-
+.header-title-h1 {
+    transform: translateY(200px);
+    animation: slideInTitle 2s ease-out forwards;
+  }
+  
+  @keyframes slideInTitle {
+    from {
+      transform: translateY(200px);
+    }
+    to {
+      transform: translateY(0);
+    }
+  }
+  
+  /* Stagger effect for multiple .header-title-h1 elements */
+  .header-title-h1:nth-child(1) {
+    animation-delay: 0s;
+  }
+  .header-title-h1:nth-child(2) {
+    animation-delay: 0.1s;
+  }
+  .header-title-h1:nth-child(3) {
+    animation-delay: 0.2s;
+  }
+  
+  /* Image animation */
+  .header-image img {
+    transform: translateY(-300px) scale(1.2);
+    animation: slideInImage 2s ease-out forwards;
+  }
+  
+  @keyframes slideInImage {
+    from {
+    //   opacity: 0;
+      transform: translateY(-300px) scale(1.2);
+    }
+    to {
+    //   opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
+  
 .header-image-animation {
     position: relative;
 }
@@ -17,6 +58,8 @@
     height: auto !important;
     position: relative;
     padding-top: 200px;
+    transition: opacity .4s;
+    transform: translate(0px, 0px);
 
     @media screen and (max-width: 1024px) {
         padding-top: 0px;
@@ -156,6 +199,10 @@ video.full {
         height: 200vh;
     }
 
+    @media screen and (min-width: 1600px) {
+        height: 500vh;
+    }
+
     .reveal-type {
         max-width: 700px;
         margin: 0 auto;
@@ -231,7 +278,7 @@ video.full {
             }
 
             .ImageReavles-item__front {
-                transition: all 2s;
+                transition: all .2s;
                 opacity: 1;
 
                 :hover {
@@ -247,22 +294,17 @@ video.full {
         z-index: 999;
         top: 0;
         left: 0vw;
-        width: 50%;
-        animation-name: reavle;
-        animation-duration: .5s;
-        animation-delay: 0ms;
-        animation-timing-function: linear;
+        width: 30%;
+        transition: all 1s ease-out;
 
-
-        @keyframes reavle {
-            0% {
-                left: -50vw;
-            }
-
-            100% {
-                left: 0vw;
-            }
+        &.active {
+            left: 0vw;
         }
+
+        &.false {
+            left: -50vw;
+        }
+
 
         img {
             object-fit: cover;
@@ -601,7 +643,7 @@ a:focus {
         }
 
         &.c9 {
-            left: calc(-10px - 467px);
+            left: calc(-10px - 555px);
             top: 935px;
             height: 320px;
             width: 320px;
@@ -621,4 +663,171 @@ a:focus {
             width: 180px;
         }
     }
+}
+
+.hm-age {
+    overflow: hidden;
+    height: 0;
+}
+
+#modalAgePopup {
+    transition: all .5s ease-out;
+
+    &.active {
+        display: flex;
+        top: 0;
+    }
+
+
+}
+
+.modal-age-popup {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    background: url('../../public/img/age-page-bg-15.webp') center center no-repeat;
+    background-size: cover;
+    background-position: bottom;
+    position: fixed;
+
+    left: -2px;
+    z-index: 2000;
+    color: var(--c2);
+    text-align: center;
+    padding: 15px;
+    padding-top: 5%;
+    font-weight: 300;
+    transition: all .5s ease-in;
+    transform: translateY(0%);
+
+    &.hide {
+        height: 0px;
+        width: 100vw;
+        padding: 0;
+        transition: all .5s ease-out;
+
+        .showAgeMsg,
+        img {
+            display: none !important;
+        }
+
+    }
+
+    .logo {
+        position: absolute;
+        top: 30px;
+        left: 30px;
+    }
+
+    h1 {
+        font-size: 26px;
+        letter-spacing: 2px;
+        line-height: 40px;
+        font-weight: 700;
+    }
+
+    h3,
+    h5 {
+        font-weight: 400;
+    }
+
+    h6 {
+        color: var(--c2);
+        letter-spacing: 2px;
+        font-size: 14px;
+        text-align: center;
+        margin: 0;
+        font-weight: 300;
+    }
+
+
+
+    form {
+        input {
+            background: rgba(0, 0, 0, 0);
+            border: none;
+            outline: none;
+            appearance: none;
+            --webkit-appearance: none;
+            -moz-appearance: textfield;
+            margin: 0;
+            border-bottom: solid 1px var(--c2);
+            padding: 0 0 6px 0px;
+            width: 120px;
+            color: var(--c2);
+            letter-spacing: 2px;
+            font-size: 14px;
+            text-align: center;
+
+            &::-webkit-inner-spin-button,
+            &::-webkit-outer-spin-button {
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance: none;
+                margin: 0;
+            }
+
+            &::placeholder {
+                color: rgba(183, 220, 223, 0.6);
+                opacity: 1;
+                /* Firefox */
+            }
+
+            &::-ms-input-placeholder {
+                /* Edge 12 -18 */
+                color: rgba(183, 220, 223, 0.6);
+            }
+        }
+
+        button {
+            border: none;
+            font-size: 20px;
+            margin-top: 40px;
+            padding: 30px 20px 10px;
+            margin: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0);
+            color: var(--c2) !important;
+        }
+
+        span {
+            width: 1px;
+            height: 35px;
+            margin: 0 10px 0 20px;
+            display: inline-block;
+            background: var(--c2);
+            vertical-align: middle;
+            transform: rotate(20deg);
+        }
+    }
+
+
+    .showAgeForm,
+    .showAgeMsg {
+        display: none;
+
+        &.active {
+            display: flex;
+            gap: 40px;
+            flex-direction: column;
+        }
+    }
+
+    .showAgeMsg {
+        gap: 80px !important;
+
+        img {
+            display: block;
+            margin: 0 auto;
+            margin-top: -40px;
+        }
+    }
+}
+
+#ageButton,
+h3 {
+    font-size: 24px !important;
 }

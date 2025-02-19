@@ -902,6 +902,11 @@ section.full {
   @media screen and (max-width: 992px) {
     font-size: 4rem; // Equivalent to 48px
   }
+
+  @media screen and (min-width: 1500px) {
+    font-size: 9rem; // Equivalent to 36px
+    
+  }
 }
 
 .color-blue {

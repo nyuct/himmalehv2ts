@@ -2,6 +2,7 @@
 import { Barlow } from 'next/font/google'
 import "@/app/globals.scss";
 import Head from "next/head";
+import { useEffect, useState } from "react";
 
 const barlow = Barlow({
   subsets: ['latin'], // Specify subsets as needed
@@ -18,8 +19,10 @@ export default function Layout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+
   return (
-    
+
     <html lang="en">
       <Head>
         <meta charSet="utf-8" />
@@ -27,8 +30,8 @@ export default function Layout({
         <meta name="description" content={metadata.description} />
         <title>{metadata.title}</title>
       </Head>
-      <body className={barlow.className}>
-        {children}
+      <body className={barlow.className} style={{backgroundColor: "#ffffff"}}>
+          {children}
       </body>
     </html>
   );

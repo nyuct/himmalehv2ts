@@ -39,7 +39,7 @@ const Header = () => {
             </Link>
             <ul className="dropdown-content">
               <li className="my-md-2">
-                <Link href="/kumaon-and-i">Kumaon&I</Link>
+                <Link href="/kumaonandi">Kumaon&I</Link>
               </li>
               <li className="my-md-2">
                 <Link href="/bandarful">Bandarful</Link>
@@ -47,7 +47,7 @@ const Header = () => {
             </ul>
           </li>
           <li>
-            <Link href="/spirits">OUR PROMISE</Link>
+            <Link href="/OurPromise">OUR PROMISE</Link>
           </li>
         </ul>
       </nav>

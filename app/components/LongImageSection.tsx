@@ -38,7 +38,7 @@ const LongImageSection = ({ page, text, imgSrc }: LongImageSectionProps) => {
             scrollTrigger: {
               trigger: ".separator--down",
               start: `top bottom`,
-              end: `bottom 80%`,
+              end: `bottom 0%`,
               scrub: true,
               markers: false,
             },
@@ -80,13 +80,13 @@ const LongImageSection = ({ page, text, imgSrc }: LongImageSectionProps) => {
         alignItems: 'center',
         justifyContent: 'center'
       }}>
-        <p
+        <div
           className="reveal-type text-title"
           data-bg-color="#4b4b4b"
           data-fg-color="#ffffff"
         >
           {text}
-        </p>
+        </div>
       </div>
 
       <svg

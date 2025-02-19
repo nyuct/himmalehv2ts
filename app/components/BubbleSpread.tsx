@@ -51,16 +51,16 @@ const BubbleSpread: React.FC = () => {
   return (
     <section className="bubble-section">
       <div className="content color-blue">
-        <p className="color-blue text-subtitle">
+        <div className="color-blue text-subtitle">
           The world of Himmaleh and its
           <br />
           formidable spirits is preserved by Kumaon <br />
           and our communities.
-        </p>
-        <p className="color-blue text-subtitle">
+        </div>
+        <div className="color-blue text-subtitle">
           They keep our mission critical, making in <br />
           India for the world.
-        </p>
+        </div>
         <div className="position-relative">
           <div className="circle-path-anim">
             <svg

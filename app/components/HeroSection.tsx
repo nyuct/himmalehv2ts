@@ -10,23 +10,17 @@ export default function HeroSection() {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    gsap.from(document.querySelectorAll(".header-title-h1"), {
-      y: 200,
-      duration: 2,
-      ease: "power4",
-      stagger: 0.1,
-    });
-    gsap.from(document.querySelector(".header-image img"), {
-      y: -300,
-      duration: 2,
-    });
+  }, []);
+
+  useEffect(() => {
+ 
 
     const maountain_animation = gsap.timeline({
       scrollTrigger: {
         trigger: ".header-image-animation",
         start: "50% 75%",
         end: "50% 0%",
-        markers: false,
+        markers: true,
         scrub: 1,
       },
     });
@@ -38,7 +32,7 @@ export default function HeroSection() {
       scrollTrigger: {
         trigger: ".waterAudio",
         start: "0% 46%",
-        end: "150% 50%",
+        end: "100% 20%",
         markers: false,
         scrub: 1,
         onToggle: () => {
@@ -49,15 +43,11 @@ export default function HeroSection() {
         },
       },
     });
-    bottel_animation.to(".header-image", {
-      opacity: "0",
-    });
     bottel_animation.to(
       ".waterAudio",
       {
         opacity: "0",
       },
-      "+=2.5"
     );
 
     return () => {
@@ -116,5 +106,4 @@ export default function HeroSection() {
     </div>
   );
 }
-
 

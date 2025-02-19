@@ -14,13 +14,13 @@ export const AboutHome = () => {
     const bg_animation = gsap.timeline({
       scrollTrigger: {
         trigger: ".hind-kush",
-        start: "0% 100%",
+        start: "0% 50%",
         end: "100% 100%",
         markers: false,
         scrub: 1,
       },
     });
-    bg_animation.to(".hind-kush-img", { y: -300 });
+    bg_animation.to(".hind-kush-img", { y: -10 });
 
     const backgroundAnimation = gsap.timeline({
       scrollTrigger: {
@@ -88,13 +88,13 @@ export const AboutHome = () => {
       </video>
       <div className="content">
         <span className="color-blue">·</span>
-        <p
+        <div
           className="reveal-type text-subtitle "
           data-bg-color="#617b80"
           data-fg-color="#b7dcdf"
         >
           In a fiercely artisanal distillery where modern day alchemists use ancient wisdom and modern science to produce craft spirits of formidable character
-        </p>
+        </div>
         <span className="color-blue">·</span>
       </div>
     </div>

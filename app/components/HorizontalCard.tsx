@@ -10,6 +10,7 @@ interface CardDetailProps {
   backimg: string;
   isFlipped: boolean;
   onClick: () => void;
+  textColor: string;
 }
 
 const CardDetail: React.FC<CardDetailProps> = ({
@@ -19,6 +20,7 @@ const CardDetail: React.FC<CardDetailProps> = ({
   backimg,
   isFlipped,
   onClick,
+  textColor,
 }) => (
   <div className="card-detail">
     <div
@@ -55,7 +57,7 @@ const CardDetail: React.FC<CardDetailProps> = ({
           height={400}
         />
         <div className="inner">
-          <p>{backText}</p>
+          <div style={{ color: textColor }}>{backText}</div>
         </div>
       </div>
     </div>
@@ -69,9 +71,10 @@ interface HorizontalCardProps {
     backText: string;
     backimg: string;
   }[];
+  textColor: string;
 }
 
-const HorizontalCard: React.FC<HorizontalCardProps> = ({ array }) => {
+const HorizontalCard: React.FC<HorizontalCardProps> = ({ array ,textColor }) => {
   const [flippedIndex, setFlippedIndex] = useState<number | null>(null);
 
   const handleCardClick = useCallback((index: number) => {
@@ -90,6 +93,7 @@ const HorizontalCard: React.FC<HorizontalCardProps> = ({ array }) => {
             backimg={card.backimg}
             isFlipped={flippedIndex === index}
             onClick={() => handleCardClick(index)}
+            textColor={textColor}
           />
         ))}
       </div>

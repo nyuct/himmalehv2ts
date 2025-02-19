@@ -17,6 +17,7 @@
 .footer-bottom {
   position: relative;
   // transform: translateY(38px);
+  margin-bottom: 100px;
   overflow: hidden;
 
   svg {
@@ -116,10 +117,6 @@
 
   ul {
     list-style: none;
-  }
-
-  p {
-    margin: 0;
   }
 }
 

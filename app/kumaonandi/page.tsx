@@ -113,7 +113,7 @@ const page = () => {
           <div className="canvas-container">
             <ThreeDScene />
             <div className="horizontal-scroll">
-              <HorizontalCard array={cards} />
+              <HorizontalCard array={cards} textColor="#a80928" />
             </div>
           </div>
           <section className="d-flex padding-lr section-margin section--3">
@@ -123,15 +123,15 @@ const page = () => {
                 data-fg-color="#283337"
                 className="heading-style-2 section--4 reveal-type"
               >
-                <p className="reveal-type text-body fw-normal">
+                <div className="reveal-type text-body fw-normal">
                   Each small-batch bottle of Kumaon & I is a personal journey for the drinker. While the finely crafted spirit captures the flavours & idioms of this region, the brand is a testament
                   to both, the passionate craft of its distillers and the earnest toil of its grower-communities.
-                </p>
-                <p className="reveal-type text-body fw-normal">
+                </div>
+                <div className="reveal-type text-body fw-normal">
                   Kumaon & I would be inconceivable without its sisterhood, the circle of nurturers. The terrain, and their lifestyle, have given the women in Kumaon a kind of strength quite hard to
                   find anywhere. From climbing the tallest trees for cattle-fodder, to fetching firewood to keep the family warm, to farming, cooking and taking care of the family, they do it all and
                   more with grace and an uncommon strength.
-                </p>
+                </div>
               </h2>
             </div>
             <div className="rotation-div d-none"></div>

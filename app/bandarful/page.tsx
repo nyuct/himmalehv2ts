@@ -111,7 +111,7 @@ const page = () => {
           <div className="canvas-container">
             <ThreeDScene />
             <div className="horizontal-scroll">
-              <HorizontalCard array={cards} />
+              <HorizontalCard array={cards} textColor="#e6e7e8"/>
             </div>
           </div>
           <section className="d-flex padding-lr section-margin section--3">
@@ -121,18 +121,18 @@ const page = () => {
                 data-fg-color="#283337"
                 className="heading-style-2 section--4 reveal-type"
               >
-                <p className="reveal-type text-body fw-normal">
+                <div className="reveal-type text-body fw-normal">
                   Bandarful is a provincial expression. It is an artisanal micro-liqueur that through its all-natural character, best captures the diversity of terroir and produce across the length of
                   India. This Cold Brew Coffee Liqueur is made in the charming estate-distillery of Himmaleh in Kumaon.
-                </p>
-                <p className="reveal-type text-body fw-normal">
+                </div>
+                <div className="reveal-type text-body fw-normal">
                   The neutral spirits made from Himalayan water are blended with handpicked Coffee Cherries and Beans from the Arabica estates of Chikmagalur. Its flavours are expressive and vivid and
                   are the result of a crafted collaboration - craftsmen and nature.
-                </p>
-                <p className="reveal-type text-body fw-normal">
+                </div>
+                <div className="reveal-type text-body fw-normal">
                   As a dessert-drink, a cocktail companion or simply straight and neat, Bandarful remains adventurous and endearing. Easy to spot in a flint clear glass bottle and a convenient bar-top
                   neck finish.
-                </p>
+                </div>
               </h2>
             </div>
             <div className="rotation-div d-none"></div>

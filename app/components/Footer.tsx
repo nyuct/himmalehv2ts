@@ -10,9 +10,10 @@ const Footer: React.FC = () => {
       return gsap.timeline({
         scrollTrigger: {
           trigger: "#footer-svg",
-          start: "0% 100%",
-          end: "50% 95%",
+          start: "0% 75%",
+          end: "50% 75%",
           scrub: true,
+          markers: false,
           onUpdate: updateValues,
         },
       }).to(el, {
@@ -38,8 +39,8 @@ const Footer: React.FC = () => {
       <div className="footer-top">
         <div className="footer-block">
           <h4>COPYRIGHT</h4>
-          <p>2023 Himalaya Wine Company</p>
-          <p className="nyuct">Website designed and developed by NYUCT Design Labs</p>
+          <div>2023 Himalaya Wine Company</div>
+          <div className="nyuct">Website designed and developed by NYUCT Design Labs</div>
         </div>
 
         <div className="footer-block">
@@ -53,7 +54,7 @@ const Footer: React.FC = () => {
 
         <div className="footer-block">
           <h4>HARYANA OFFICE</h4>
-          <p>
+          <div>
             Himmaleh Spirits
             <br />
             Unit no 004, Ground Floor
@@ -63,19 +64,19 @@ const Footer: React.FC = () => {
             Main Mathura Road, Molar Band Extension, Sector 37,
             <br />
             Faridabad, Haryana -121003
-          </p>
+          </div>
         </div>
 
         <div className="footer-block">
           <h4>HIMMALEH DISTILLERY</h4>
-          <p>
+          <div>
             Plot No. 2A, Sector 4<br />
             IIE - Escort Farm, Kashipur
             <br />
             District Udham Singh Nagar
             <br />
             Uttarakhand
-          </p>
+          </div>
         </div>
       </div>
 

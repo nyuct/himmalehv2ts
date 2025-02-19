@@ -96,7 +96,7 @@ const ProductFooter: React.FC<ProductFooterProps> = ({
             data-bg-color="#f4f4f4"
             data-fg-color="#283337"
           >
-            <p className="text-body">{para}</p>
+            <div className="text-body">{para}</div>
             <br />
             <div>
               <Image
@@ -114,7 +114,7 @@ const ProductFooter: React.FC<ProductFooterProps> = ({
               data-fg-color="#283337"
             >
               <h3 className="fw-bold mb-0 mt-1 text-subtitle">{heading}</h3>
-              <p className="display-5">.</p>
+              <div className="display-5">.</div>
             </div>
           </div>
         </div>

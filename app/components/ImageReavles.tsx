@@ -29,16 +29,22 @@ const ImageReavles = () => {
     <section className="ImageReavles-containter">
       <div className="ImageReavles">
         <div className="ImageReavles-title text-subtitle">Sneak peek of our labels</div>
-        {hover !== null && (
-          <div className="ImageReavles-reavle">
-            <Image
-              src={`${process.env.NEXT_PUBLIC_IMG_SRC}${products[hover].reavleImg}`}
-              fill
-              unoptimized
-              alt={products[hover].name}
-            />
-          </div>
-        )}
+        <div className={`ImageReavles-reavle ${hover == 0 && 'active'}`}>
+          <Image
+            src={`${process.env.NEXT_PUBLIC_IMG_SRC}${products[0].reavleImg}`}
+            fill
+            unoptimized
+            alt={products[0].name}
+          />
+        </div>
+        <div className={`ImageReavles-reavle ${hover == 1 && 'active'}`}>
+          <Image
+            src={`${process.env.NEXT_PUBLIC_IMG_SRC}${products[1].reavleImg}`}
+            fill
+            unoptimized
+            alt={products[1].name}
+          />
+        </div>
         <div className="ImageReavles-content">
           {products.map(product => (
             <div

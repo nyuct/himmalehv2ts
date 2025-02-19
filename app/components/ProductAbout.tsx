@@ -91,9 +91,9 @@ const ProductAbout: React.FC<ProductAboutProps> = ({
           data-fg-color="#283337"
         >
           <div className="d-flex gap-3 flex-column">
-            <p className="display-5">.</p>
+            <div className="display-5">.</div>
             <h3 className="fw-bold mb-0 mt-1 text-subtitle">{heading}</h3>
-            <p className="display-5">.</p>
+            <div className="display-5">.</div>
           </div>
           <div
             className="mx-auto  reveal-type mt-3"
@@ -101,12 +101,12 @@ const ProductAbout: React.FC<ProductAboutProps> = ({
             data-fg-color="#283337"
           >
             {para.map((item, index) => (
-              <p className="text-body my-3" key={index}>
+              <div className="text-body my-3" key={index}>
                 {item}
-              </p>
+              </div>
             ))}
             <br />
-            <p className="display-5">.</p>
+            <div className="display-5">.</div>
           </div>
         </div>
       </div>
