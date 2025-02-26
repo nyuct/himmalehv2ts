@@ -1,7 +1,4 @@
 "use client";
-
-import RootLayout from "@/app/components/RootLayout";
-import ThreeDScene from "./ThreeDScene";
 import ParallaxHero from "@/app/components/ParallaxHero";
 import RotateBottel from "@/app/components/RotateBottel";
 import ProductAbout from "@/app/components/ProductAbout";
@@ -9,11 +6,24 @@ import ProductFooter from "@/app/components/ProductFooter";
 import LongImageSection from "@/app/components/LongImageSection";
 import ProductImages from "@/app/components/ProductImages";
 import HorizontalCard from "@/app/components/HorizontalCard";
-import { useRef , useEffect } from "react";
+import { useRef, useEffect } from "react";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import ThreeDScene from "./ThreeDScene";
+import "lenis/dist/lenis.css";
+import Header from "@/app/components/Header";
+import Footer from "@/app/components/Footer";
+import { ReactLenis } from "lenis/react";
+import AgeModal from "@/app/components/AgeModal";
+import { Barlow } from "next/font/google";
 
+const barlow = Barlow({
+  subsets: ["latin"],
+  weight: ["400", "800"],
+});
+
+gsap.registerPlugin(ScrollTrigger);
 
 const page = () => {
   const aboutPara: string[] = [
@@ -65,7 +75,7 @@ const page = () => {
         "What raises a fine spirit? We say a universe of love and hands that nurture. From the artful distillers to the local plantation community, from the spirited foragers to the carefully selected partners who help source uncompromised botanicals from the region. From the passionate makers to the sisterhood in the hills that inspires the Gin with its femme power, Kumaon & I is a labour of love of a community that is diverse and nurturing.",
     },
   ];
-  const HeroBannerRef = useRef(null);
+  const heroBannerRef = useRef(null);
   gsap.registerPlugin(useGSAP, ScrollTrigger);
 
   useEffect(() => {
@@ -90,68 +100,78 @@ const page = () => {
           },
         });
         growTl.to(".horizontal-scroll", { transform: "translateX(-200%)", ease: "none" });
-        growTl.to(".horizontal-scroll", { transform: "translateX(-200%)", ease: "none" });
       }
     },
-    { scope: HeroBannerRef }
+    { scope: heroBannerRef }
   );
   return (
-    <RootLayout>
-      <div className="product-page">
-        <ParallaxHero
-          imgSrc="img/kumaoui-reavle.webp"
-          text="Kumaon & I"
-        />
-        <RotateBottel />
-        <ProductAbout
-          heading="HIMALAYAN IN SPIRIT AND RIGHT BY NATURE"
-          para={aboutPara}
-          leftImg="dots-left.png"
-          rightImg="dots-right.png"
-        />
-        <section className="horizontalSection"  ref={HeroBannerRef}>
-          <div className="canvas-container">
-            <ThreeDScene />
-            <div className="horizontal-scroll">
-              <HorizontalCard array={cards} textColor="#a80928" />
-            </div>
-          </div>
-          <section className="d-flex padding-lr section-margin section--3">
-            <div className="side-para">
-              <h2
-                data-bg-color="#f4f4f4"
-                data-fg-color="#283337"
-                className="heading-style-2 section--4 reveal-type"
-              >
-                <div className="reveal-type text-body fw-normal">
-                  Each small-batch bottle of Kumaon & I is a personal journey for the drinker. While the finely crafted spirit captures the flavours & idioms of this region, the brand is a testament
-                  to both, the passionate craft of its distillers and the earnest toil of its grower-communities.
+    <html lang="en" className={`QQQ ${barlow.className} `}>
+      <body className="bg-white" suppressHydrationWarning={true}>
+        <ReactLenis root options={{ duration: 2.2 }}>
+          <main className="body">
+            <AgeModal />
+            <Header />
+            <div className="product-page">
+              <ParallaxHero
+                imgSrc="img/kumaoui-reavle.webp"
+                text="Kumaon & I"
+              />
+              <RotateBottel />
+              <ProductAbout
+                heading="HIMALAYAN IN SPIRIT AND RIGHT BY NATURE"
+                para={aboutPara}
+                leftImg="dots-left.png"
+                rightImg="dots-right.png"
+                width={100}
+                height={200}
+              />
+              <section className="horizontalSection" ref={heroBannerRef}>
+                <div className="canvas-container">
+                  <ThreeDScene />
+                  <div className="horizontal-scroll">
+                    <HorizontalCard array={cards} textColor="#a80928" />
+                  </div>
                 </div>
-                <div className="reveal-type text-body fw-normal">
-                  Kumaon & I would be inconceivable without its sisterhood, the circle of nurturers. The terrain, and their lifestyle, have given the women in Kumaon a kind of strength quite hard to
-                  find anywhere. From climbing the tallest trees for cattle-fodder, to fetching firewood to keep the family warm, to farming, cooking and taking care of the family, they do it all and
-                  more with grace and an uncommon strength.
-                </div>
-              </h2>
+                <section className="d-flex padding-lr section-margin section--3">
+                  <div className="side-para">
+                    <h2
+                      data-bg-color="#f4f4f4"
+                      data-fg-color="#283337"
+                      className="heading-style-2 section--4 reveal-type"
+                    >
+                      <div className="reveal-type text-body fw-normal">
+                        Each small-batch bottle of Kumaon & I is a personal journey for the drinker. While the finely crafted spirit captures the flavours & idioms of this region, the brand is a testament
+                        to both, the passionate craft of its distillers and the earnest toil of its grower-communities.
+                      </div>
+                      <div className="reveal-type text-body fw-normal">
+                        Kumaon & I would be inconceivable without its sisterhood, the circle of nurturers. The terrain, and their lifestyle, have given the women in Kumaon a kind of strength quite hard to
+                        find anywhere. From climbing the tallest trees for cattle-fodder, to fetching firewood to keep the family warm, to farming, cooking and taking care of the family, they do it all and
+                        more with grace and an uncommon strength.
+                      </div>
+                    </h2>
+                  </div>
+                  <div className="rotation-div d-none"></div>
+                </section>
+              </section>
+              <LongImageSection
+                text="This crafted Dry Gin draws from this inspiration to model its distillery and growing practices. From working with women-led cooperatives, to sourcing botanicals from suppliers who work with women from the region to even its design which traces itself to the traditional craft and art like Aipan and Pichori sustained by proud women in their homes."
+                page="kumaonandi"
+                imgSrc="kumaon-long-img.webp"
+              />
+              <ProductFooter
+                heading="THIS IS THE STORY OF KUMAON & I. FIERCELY INDEPENDENT IN ITS VISION AND BEING A FORCE OF NATURE. IT IS AS MUCH YOUR STORY AS OURS."
+                para="From being labelled disparagingly as “Mother's ruin” during the temperance movement in the west in its early days (to discourage women drinkers), Gin has indeed come a long way. And found a story that turns its antecedents around its head with Himalayan femme power. Our Gin holds dear the privilege of being reared by this indomitable and generous sorority. It is our most prized badge of honour."
+                leftImg="dots-left.png"
+                rightImg="dots-right.png"
+                logo="kandi-logo.jpg"
+              />
+              <ProductImages />
             </div>
-            <div className="rotation-div d-none"></div>
-          </section>
-        </section>
-        <LongImageSection
-          text="This crafted Dry Gin draws from this inspiration to model its distillery and growing practices. From working with women-led cooperatives, to sourcing botanicals from suppliers who work with women from the region to even its design which traces itself to the traditional craft and art like Aipan and Pichori sustained by proud women in their homes."
-          page="kumaonandi"
-          imgSrc="kumaon-long-img.webp"
-        />
-        <ProductFooter
-          heading="THIS IS THE STORY OF KUMAON & I. FIERCELY INDEPENDENT IN ITS VISION AND BEING A FORCE OF NATURE. IT IS AS MUCH YOUR STORY AS OURS."
-          para="From being labelled disparagingly as “Mother's ruin” during the temperance movement in the west in its early days (to discourage women drinkers), Gin has indeed come a long way. And found a story that turns its antecedents around its head with Himalayan femme power. Our Gin holds dear the privilege of being reared by this indomitable and generous sorority. It is our most prized badge of honour."
-          leftImg="dots-left.png"
-          rightImg="dots-right.png"
-          logo="kandi-logo.jpg"
-        />
-        <ProductImages />
-      </div>
-    </RootLayout>
+            <Footer />
+          </main>
+        </ReactLenis>
+      </body>
+    </html>
   );
 };
 

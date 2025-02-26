@@ -10,6 +10,8 @@ interface ProductAboutProps {
   para: string[];
   leftImg: string;
   rightImg: string;
+  height: number;
+  width: number;
 }
 
 const ProductAbout: React.FC<ProductAboutProps> = ({
@@ -17,6 +19,8 @@ const ProductAbout: React.FC<ProductAboutProps> = ({
   para,
   leftImg,
   rightImg,
+  height,
+  width
 }) => {
   const aboutRef = useRef<HTMLDivElement | null>(null);
 
@@ -74,16 +78,16 @@ const ProductAbout: React.FC<ProductAboutProps> = ({
           className="sticky-dots-left"
           alt="Left Dots"
           unoptimized={true}
-          width={100}
-          height={200}
+          width={width}
+          height={height}
         />
         <Image
           src={`${process.env.NEXT_PUBLIC_IMG_SRC}${rightImg}`}
           className="sticky-dots-right"
           alt="Right Dots"
           unoptimized={true}
-          width={100}
-          height={200}
+          width={width}
+          height={height}
         />
         <div
           className="reveal-type sticky-dots-animation mx-auto text-center my-5 position-relative"

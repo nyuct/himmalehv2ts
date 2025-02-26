@@ -6,53 +6,49 @@ import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
 export default function HeroSection() {
   const containerRef = useRef<HTMLDivElement | null>(null);
+  gsap.registerPlugin(ScrollTrigger);
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
-  }, []);
-
-  useEffect(() => {
- 
-
-    const maountain_animation = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".header-image-animation",
-        start: "50% 75%",
-        end: "50% 0%",
-        markers: true,
-        scrub: 1,
-      },
-    });
-    maountain_animation.to(".header-title", {
-      top: "-40%",
-      position: "absolute",
-    });
-    const bottel_animation = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".waterAudio",
-        start: "0% 46%",
-        end: "100% 20%",
-        markers: false,
-        scrub: 1,
-        onToggle: () => {
-          const waterAudioElement = document.querySelector(".waterAudio");
-          if (waterAudioElement) {
-            waterAudioElement.classList.toggle("fixed-bottel");
-          }
+    if (typeof window !== "undefined") {
+      const maountain_animation = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".header-image-animation",
+          start: "50% 75%",
+          end: "50% 0%",
+          markers: false,
+          scrub: 1,
         },
-      },
-    });
-    bottel_animation.to(
-      ".waterAudio",
-      {
-        opacity: "0",
-      },
-    );
+      });
+      maountain_animation.to(".header-title", {
+        top: "-40%",
+        position: "absolute",
+      });
+      const bottel_animation = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".waterAudio",
+          start: "0% 46%",
+          end: "100% 20%",
+          markers: false,
+          scrub: 1,
+          onToggle: () => {
+            const waterAudioElement = document.querySelector(".waterAudio");
+            if (waterAudioElement) {
+              waterAudioElement.classList.toggle("fixed-bottel");
+            }
+          },
+        },
+      });
+      bottel_animation.to(
+        ".waterAudio",
+        {
+          opacity: "0",
+        },
+      );
 
-    return () => {
-      gsap.killTweensOf("*");
-    };
+      return () => {
+        gsap.killTweensOf("*");
+      };
+    }
   }, []);
 
   return (
@@ -79,7 +75,7 @@ export default function HeroSection() {
       <section className="bottel-animation">
         <div
           id="waterBottle"
-          className="waterAudio"
+          className="waterAudio autoAudio"
           data-audio-file="water_streak.mp3"
         >
           <video

@@ -7,9 +7,10 @@ interface LongImageSectionProps {
   page: string;
   text: string;
   imgSrc: string;
+
 }
 
-const LongImageSection = ({ page, text, imgSrc }: LongImageSectionProps) => {
+const LongImageSection = ({ page, text, imgSrc  }: LongImageSectionProps) => {
   const containerAbout = useRef(null);
   const tl = useRef(gsap.timeline());
 
@@ -38,7 +39,7 @@ const LongImageSection = ({ page, text, imgSrc }: LongImageSectionProps) => {
             scrollTrigger: {
               trigger: ".separator--down",
               start: `top bottom`,
-              end: `bottom 0%`,
+              end: `bottom 80%`,
               scrub: true,
               markers: false,
             },
@@ -49,7 +50,7 @@ const LongImageSection = ({ page, text, imgSrc }: LongImageSectionProps) => {
   );
 
   return (
-    <section ref={containerAbout} className="longSection-containter" style={{ backgroundImage: `url(${process.env.NEXT_PUBLIC_IMG_SRC}${imgSrc})`, backgroundSize: "cover" }}>
+    <section ref={containerAbout} className="longSection-containter autoAudio " style={{ backgroundImage: `url(${process.env.NEXT_PUBLIC_IMG_SRC}${imgSrc})`, backgroundSize: "cover" }} data-audio-file="forest-ambience.mp3">
       <svg
         className="separator separator--top top"
         width="100%"
@@ -80,13 +81,13 @@ const LongImageSection = ({ page, text, imgSrc }: LongImageSectionProps) => {
         alignItems: 'center',
         justifyContent: 'center'
       }}>
-        <div
+        <p
           className="reveal-type text-title"
           data-bg-color="#4b4b4b"
           data-fg-color="#ffffff"
         >
           {text}
-        </div>
+        </p>
       </div>
 
       <svg

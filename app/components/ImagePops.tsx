@@ -7,11 +7,13 @@ const ImagePops = () => {
   const contentRef = useRef(null);
 
   useEffect(() => {
-    const trail = new ImageTrail({ content: contentRef.current });
+    if (typeof window !== "undefined") {
+      const trail = new ImageTrail({ content: contentRef.current });
 
-    return () => {
-      trail.destroy();
-    };
+      return () => {
+        trail.destroy();
+      };
+    }
   }, []);
 
   return (
@@ -36,3 +38,4 @@ const ImagePops = () => {
 };
 
 export default ImagePops;
+

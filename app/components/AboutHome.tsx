@@ -1,45 +1,46 @@
  "use client";
 import React, { useEffect } from "react";
 import Image from "next/image";
-import { useGSAP } from "@gsap/react";
 import { useRef } from "react";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import gsap from "gsap";
 
 export const AboutHome = () => {
   const containerAbout = useRef(null);
-  gsap.registerPlugin(useGSAP, ScrollTrigger);
 
   useEffect(() => {
-    const bg_animation = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".hind-kush",
-        start: "0% 50%",
-        end: "100% 100%",
-        markers: false,
-        scrub: 1,
-      },
-    });
-    bg_animation.to(".hind-kush-img", { y: -10 });
+    if (typeof window !== 'undefined') {
+      gsap.registerPlugin(ScrollTrigger);
 
-    const backgroundAnimation = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".distalarySection",
-        start: "0% 0%",
-        end: "100% 110%",
-        markers: false,
-        onEnter: () => backgroundAnimation.to("body", { backgroundColor: "#283337" }),
-        onEnterBack: () => backgroundAnimation.to("body", { backgroundColor: "#283337" }),
-        onLeave: () => backgroundAnimation.to("body", { backgroundColor: "#ffffff" }),
-        onLeaveBack: () => backgroundAnimation.to("body", { backgroundColor: "#ffffff" }),
+      const bg_animation = gsap.timeline({
+        scrollTrigger: {
+          trigger: ".hind-kush",
+          start: "0% 50%",
+          end: "100% 100%",
+          markers: false,
+          scrub: 1,
+        },
+      });
+      bg_animation.to(".hind-kush-img", { y: -10 });
 
-      },
-    });
+      // const backgroundAnimation = gsap.timeline({
+      //   scrollTrigger: {
+      //     trigger: ".distalarySection",
+      //     start: "0% 0%",
+      //     end: "100% 110%",
+      //     markers: false,
+      //     onEnter: () => backgroundAnimation.to(".body", { backgroundColor: "#283337" }),
+      //     onEnterBack: () => backgroundAnimation.to(".body", { backgroundColor: "#283337" }),
+      //     onLeave: () => backgroundAnimation.to(".body", { backgroundColor: "#ffffff" }),
+      //     onLeaveBack: () => backgroundAnimation.to(".body", { backgroundColor: "#ffffff" }),
+      //   },
+      // });
 
-    return () => {
-      gsap.killTweensOf(".hind-kush-img");
-      gsap.killTweensOf(".reveal-type");
-    };
+      return () => {
+        gsap.killTweensOf(".hind-kush-img");
+        gsap.killTweensOf(".reveal-type");
+      };
+    }
   }, []);
 
   return (

@@ -4,7 +4,7 @@ import type { JSX } from 'react'
 import Header from './Header'
 import { ReactLenis } from 'lenis/react'
 import 'lenis/dist/lenis.css'
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { useGSAP } from '@gsap/react'
 import { useRef } from 'react'
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger'
@@ -14,13 +14,14 @@ import Footer from '../components/Footer'
 import Layout from '../layout'
 import AgeModal from './AgeModal'
 import "@/app/styles/master.scss"
-
+import dynamic from 'next/dynamic'
 export default function RootLayout({
     children,
 }: {
     children: React.ReactNode
 }): JSX.Element {
-    const containerBody = useRef<HTMLBodyElement>(null)
+    const containerBody = useRef<HTMLDivElement>(null)
+    const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
 
@@ -37,7 +38,7 @@ export default function RootLayout({
                 },
             });
 
-            farmToBottle.to(el as HTMLElement, { rotate: -360 });
+            farmToBottle.to(el as HTMLElement, { rotate: 360 });
         });
         const resetGSAP = () => {
             ScrollTrigger.getAll().forEach(trigger => trigger.kill());
@@ -48,7 +49,9 @@ export default function RootLayout({
             resetGSAP();
         };
     }, []);
- 
+    useEffect(() => {
+        setMounted(true);
+    }, []);
     useGSAP(
         () => {
             const splitTypes = document.querySelectorAll('.reveal-type')
@@ -83,8 +86,8 @@ export default function RootLayout({
 
     return (
         <Layout>
-            <ReactLenis root options={{ duration: 2.2 }}>
-                <main
+            <ReactLenis root>
+                <div
                     ref={containerBody}
                 >
 
@@ -93,7 +96,7 @@ export default function RootLayout({
                     {children}
                     <Footer />
 
-                </main>
+                </div>
             </ReactLenis>
         </Layout>
     )

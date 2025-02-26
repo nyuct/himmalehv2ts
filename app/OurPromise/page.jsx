@@ -2,7 +2,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import RootLayout from "@/app/components/RootLayout";
+import RootLayout from "@/app/layout";
 import RotateBottel from "@/app/components/RotateBottel";
 import ProductImages from "@/app/components/ProductImages";
 

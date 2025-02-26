@@ -4,47 +4,51 @@ import React, { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 
-gsap.registerPlugin(ScrollTrigger);
 
 const BubbleSpread: React.FC = () => {
   useEffect(() => {
-    const circleExpand = () => {
-      const ce = gsap.timeline({
-        scrollTrigger: {
-          markers: false,
-          trigger: ".circle-anim",
-          scrub: 0.1,
-          start: "top 75%",
-        },
-      });
-      ce.from(".outline-anim", {
-        opacity: 0,
-        onComplete: function () {
-          document.querySelector(".outline-anim")?.classList.add("active");
-        },
-      })
-        .from(
-          ".circle-anim",
-          {
-            opacity: 0,
+    if (typeof window !== "undefined") {
+      gsap.registerPlugin(ScrollTrigger);
+      const circleExpand = () => {
+        const ce = gsap.timeline({
+          scrollTrigger: {
+            markers: false,
+            trigger: ".circle-anim",
+            scrub: 0.1,
+            start: "top 75%",
           },
-          "+=0.5"
-        )
-        .from(".circle-block", {
-          width: "160px",
-          height: "160px",
-          top: "0px",
-          left: "0px",
-          opacity: 0,
-          stagger: { amount: 1 },
         });
-    };
+        ce.from(".outline-anim", {
+          opacity: 0,
+          onComplete: function () {
+            document.querySelector(".outline-anim")?.classList.add("active");
+          },
+        })
+          .from(
+            ".circle-anim",
+            {
+              opacity: 0,
+            },
+            "+=0.5"
+          )
+          .from(".circle-block", {
+            width: "160px",
+            height: "160px",
+            top: "0px",
+            left: "0px",
+            opacity: 0,
+            stagger: { amount: 1 },
+          });
+      };
 
-    circleExpand();
+      circleExpand();
 
+    }
     return () => {
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-      gsap.globalTimeline.clear();
+      if (typeof window !== "undefined") {
+        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+        gsap.globalTimeline.clear();
+      }
     };
   }, []);
 

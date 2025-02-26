@@ -19,8 +19,8 @@ const HomeBanner = () => {
 
   useGSAP(
     () => {
-      const grow = document.querySelector("#grow");
-      if (grow && window.innerWidth >= 768) {
+      if (typeof window !== "undefined" && window.innerWidth >= 768) {
+        const grow = document.querySelector("#grow");
         const growTl = gsap.timeline({
           scrollTrigger: {
             trigger: "#grow",
@@ -29,7 +29,7 @@ const HomeBanner = () => {
             end: "150% -200%",
             markers: false,
             onToggle: () => {
-              grow.classList.toggle("grow-fixed");
+              (grow as HTMLElement).classList.toggle("grow-fixed");
             },
             onLeave: () => {
               (grow as HTMLElement).style.bottom = "0%";

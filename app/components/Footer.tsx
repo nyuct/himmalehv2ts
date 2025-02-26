@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { Section } from "lucide-react";
 
 const Footer: React.FC = () => {
   useEffect(() => {
@@ -10,11 +11,9 @@ const Footer: React.FC = () => {
       return gsap.timeline({
         scrollTrigger: {
           trigger: "#footer-svg",
-          start: "0% 75%",
+          start: "0% 90%",
           end: "50% 75%",
           scrub: true,
-          markers: false,
-          onUpdate: updateValues,
         },
       }).to(el, {
         y: 0,
@@ -30,17 +29,13 @@ const Footer: React.FC = () => {
     };
   }, []);
 
-  const updateValues = () => {
-    // Define the function to handle updates here
-  };
-
   return (
-    <footer className="main-footer">
+    <section className="main-footer">
       <div className="footer-top">
         <div className="footer-block">
           <h4>COPYRIGHT</h4>
-          <div>2023 Himalaya Wine Company</div>
-          <div className="nyuct">Website designed and developed by NYUCT Design Labs</div>
+          <p>2023 Himalaya Wine Company</p>
+          <p className="nyuct">Website designed and developed by NYUCT Design Labs</p>
         </div>
 
         <div className="footer-block">
@@ -54,7 +49,7 @@ const Footer: React.FC = () => {
 
         <div className="footer-block">
           <h4>HARYANA OFFICE</h4>
-          <div>
+          <p>
             Himmaleh Spirits
             <br />
             Unit no 004, Ground Floor
@@ -64,19 +59,19 @@ const Footer: React.FC = () => {
             Main Mathura Road, Molar Band Extension, Sector 37,
             <br />
             Faridabad, Haryana -121003
-          </div>
+          </p>
         </div>
 
         <div className="footer-block">
           <h4>HIMMALEH DISTILLERY</h4>
-          <div>
+          <p>
             Plot No. 2A, Sector 4<br />
             IIE - Escort Farm, Kashipur
             <br />
             District Udham Singh Nagar
             <br />
             Uttarakhand
-          </div>
+          </p>
         </div>
       </div>
 
@@ -115,7 +110,7 @@ const Footer: React.FC = () => {
             className="footer-svg-path letter-14" />
         </svg>
       </div>
-    </footer>
+    </section>
   );
 };
 
